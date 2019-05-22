@@ -1,28 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import TodoListItem from '../todo-list-item';
 
 import styles from './todo-list.module.css';
 
-export default function TodoList(props) {
+export default class TodoList extends Component{
 
-  const handleShowEditTodoModal = (todoId) => {
-    const todo = props.todos.find(todo => todoId === todo.id);
-    props.showEditTodoModal(todo);
+  constructor(props) {
+    super(props);
+    this.handleShowEditTodoModal = this.handleShowEditTodoModal.bind(this);
+  }
+
+  handleShowEditTodoModal (todoId) {
+    const todo = this.props.todos.find(todo => todoId === todo.id);
+    this.props.showEditTodoModal(todo);
   };
 
-  const TasksList = props.todos.map(todo =>
-    <TodoListItem
-      key={todo.id}
-      todo={todo}
-      showEditTodoModal={handleShowEditTodoModal}
-      toggleTodo={props.toggleTodo}
-    />
-  );
+  render () {
+    const TasksList = this.props.todos.map(todo =>
+      <TodoListItem
+        key={todo.id}
+        todo={todo}
+        showEditTodoModal={this.handleShowEditTodoModal}
+        toggleTodo={this.props.toggleTodo}
+      />
+    );
 
-  return (
-    <ul className={styles.todoList}>
-      {TasksList}
-    </ul>
-  );
+    return (
+      <ul className={styles.todoList}>
+        {TasksList}
+      </ul>
+    );
+  }
 }
