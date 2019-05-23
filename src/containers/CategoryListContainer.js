@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from "react-router";
 
 import CategoryList from '../components/category-list';
-import { setCurrentCategoryId, deleteCategory, showEditCategoryModal, showAddCategoryModal } from '../actions';
+import { setCurrentCategoryId, addCategory, editCategory, deleteCategory} from '../actions';
 import { getSortedCategories } from '../selectors/categories';
 
 function mapStateToProps(state) {
@@ -17,9 +17,9 @@ function mapDispatchToProps(dispatch) {
 
   return bindActionCreators({
     onChangeCategory: setCurrentCategoryId,
+    onAddCategory: addCategory,
+    onEditCategory: editCategory,
     onDeleteCategory: deleteCategory,
-    showEditCategoryModal: showEditCategoryModal,
-    showAddCategoryModal: showAddCategoryModal,
   }, dispatch);
 }
 

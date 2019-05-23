@@ -1,21 +1,30 @@
 import React, { PureComponent } from 'react';
 
 import styles from './todo-list-item.module.css';
+import TodoModal from "./todo-modal";
 
 export default class TodoListItem extends PureComponent{
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      showEditCategoryModal: false
+    };
+
     this.handleToggleTodo = this.handleToggleTodo.bind(this);
     this.handleShowEditTodoModal = this.handleShowEditTodoModal.bind(this);
   }
 
   handleToggleTodo () {
-    this.props.toggleTodo(this.props.todo);
+    this.props.todo.done = !this.props.todo.done;
+    this.props.onEditTodo(this.props.todo);
   }
 
   handleShowEditTodoModal () {
-    this.props.showEditTodoModal(this.props.todo.id);
+    this.setState({
+      showEditCategoryModal: !this.state.showEditCategoryModal
+    });
   }
 
   render () {
@@ -28,6 +37,16 @@ export default class TodoListItem extends PureComponent{
         <button className="small-btn" onClick={this.handleShowEditTodoModal}>
           <i className="fas fa-edit" />
         </button>
+        {this.state.showEditCategoryModal ?
+          <TodoModal
+            todo={props.todo}
+            categories={props.categories}
+            hideModal={this.handleShowEditTodoModal}
+            submit={this.props.onEditTodo}
+          />
+          :
+          null
+        }
       </li>
     );
   }

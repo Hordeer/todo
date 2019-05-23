@@ -15,3 +15,31 @@
     width: 200px;
     align-self: flex-end;
 }
+
+.smallBtn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.name,
+.selection {
+    width: 70%;
+    margin-bottom: 1em;
+}
+
+.isDone {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.doneCheckbox {
+    margin-right: 1em;
+}
+
+.saveBtn {
+    width: fit-content;
+    height: 1.6em;
+    align-self: flex-end;
+}

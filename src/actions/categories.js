@@ -20,6 +20,7 @@ export function getCategories() {
 }
 
 export function addCategory(category) {
+  console.log(category);
   return dispatch => {
     return categoryApi.addCategory(category)
       .then(response => response.data)
