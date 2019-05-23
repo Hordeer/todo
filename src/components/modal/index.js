@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import classNames from "classnames";
 import styles from './modal.module.css';
 
-function Index(props) {
+function Modal(props) {
   return ReactDOM
     .createPortal(
       <ModalInner {...props} />,
@@ -20,4 +20,5 @@ function ModalInner(props) {
     </div>
   );
 }
-export default Index;
+
+export default Modal;

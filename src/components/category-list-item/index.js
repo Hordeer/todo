@@ -3,8 +3,17 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './category-list-item.module.css';
 import CategoryModal from "./category-modal";
+import PropTypes from "prop-types";
 
 export default class CategoryListItem extends React.PureComponent {
+  static propTypes = {
+    onChangeCategory: PropTypes.func.isRequired,
+    onAddCategory: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired,
+    category: PropTypes.object.isRequired,
+    isInnerItem: PropTypes.bool.isRequired,
+  };
+
   constructor(props) {
     super(props);
 

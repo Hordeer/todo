@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './add-panel.module.css';
 
 export default class AddPanel extends Component {
+  static propTypes = {
+    handleSubmit: PropTypes.func.isRequired
+  };
 
   constructor(props) {
     super(props);

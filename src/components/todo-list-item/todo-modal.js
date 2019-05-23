@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import Modal from '../modal';
 import classNames from "classnames";
 import styles from './todo-list-item.module.css';
+import PropTypes from "prop-types";
 
 export default class TodoModal extends Component{
+  static propTypes = {
+    todo: PropTypes.object.isRequired,
+    categories: PropTypes.array.isRequired,
+    submit: PropTypes.func.isRequired,
+    hideModal: PropTypes.func.isRequired
+  };
+
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);

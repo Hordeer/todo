@@ -5,8 +5,20 @@ import CategoryListItem from '../category-list-item';
 import routes from '../../routes';
 
 import styles from './category-list.module.css';
+import PropTypes from "prop-types";
 
 export default class CategoryList extends Component{
+  static propTypes = {
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+    categories: PropTypes.array.isRequired,
+    currentCategoryId: PropTypes.number,
+    onChangeCategory: PropTypes.func.isRequired,
+    onAddCategory: PropTypes.func.isRequired,
+    onEditCategory: PropTypes.func.isRequired,
+    onDeleteCategory: PropTypes.func.isRequired,
+  };
+
   componentDidMount () {
     const match = matchPath(this.props.location.pathname, routes.category);
 

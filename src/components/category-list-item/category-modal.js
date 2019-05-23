@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import Modal from '../modal';
 import classNames from "classnames";
 import styles from './category-list-item.module.css';
+import PropTypes from "prop-types";
 
 export default class CategoryModal extends Component{
+  static propTypes = {
+    name: PropTypes.string,
+    submit: PropTypes.func.isRequired,
+    hideModal: PropTypes.func.isRequired
+  };
+
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);

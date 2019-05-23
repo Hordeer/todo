@@ -2,8 +2,14 @@ import React, { PureComponent } from 'react';
 
 import styles from './todo-list-item.module.css';
 import TodoModal from "./todo-modal";
+import PropTypes from "prop-types";
 
 export default class TodoListItem extends PureComponent{
+  static propTypes = {
+    todo: PropTypes.object.isRequired,
+    onEditTodo: PropTypes.func.isRequired,
+    categories: PropTypes.array.isRequired
+  };
 
   constructor(props) {
     super(props);
